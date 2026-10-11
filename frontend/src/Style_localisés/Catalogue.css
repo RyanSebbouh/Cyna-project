@@ -1,0 +1,203 @@
+/* --- Global --- */
+.catalogue-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+}
+
+/* --- En-tête --- */
+.catalogue-header { margin-bottom: 4rem; text-align: center; }
+.catalogue-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #000000;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- Barre de recherche et Filtres --- */
+.search-filter-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.search-bar-container {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+}
+
+.search-icon-wrapper { padding: 12px; color: #000000; }
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 1rem;
+  color: #000000;
+}
+
+/* --- Sélecteurs, Inputs de prix et Bouton --- */
+.filter-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap; /* Je permets aux filtres de passer à la ligne si besoin */
+}
+
+.filter-icon { color: #000000; }
+
+.filter-select, .price-input {
+  padding: 12px 20px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 0.9rem;
+  outline: none;
+  border-radius: 0;
+}
+
+.filter-select {
+  cursor: pointer;
+  appearance: none;
+  min-width: 160px;
+}
+
+.price-input {
+  width: 100px; /* Taille fixe pour les champs prix min/max */
+  transition: border-color 0.3s ease;
+}
+
+.price-input:focus {
+  border-color: #000000;
+}
+
+/* Je masque les flèches par défaut des inputs number pour garder le design propre */
+.price-input::-webkit-inner-spin-button,
+.price-input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.search-button {
+  padding: 12px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+.search-button:hover { background: #333333; }
+
+/* --- Grille et Cartes --- */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 4rem 2rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  transition: transform 0.3s ease;
+}
+.book-card:hover { transform: translateY(-5px); }
+
+.book-image-container {
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background-color: #f8f8f8;
+  border: 1px solid #eeeeee;
+}
+.book-image {
+  max-height: 90%;
+  max-width: 90%;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
+.book-info { flex: 1; display: flex; flex-direction: column; text-align: center; }
+.book-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  font-weight: 600;
+}
+.book-author {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  flex: 1;
+}
+
+/* --- Pied de carte --- */
+.book-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #eeeeee;
+}
+.book-price { font-weight: 600; font-size: 1.1rem; color: #000000; }
+
+.cart-button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cart-button:hover { background: #333333; transform: scale(1.05); }
+
+/* --- Loading & No Results --- */
+.loading-container, .no-results { text-align: center; padding: 4rem 0; color: #666666; }
+.spinner { color: #000000; }
+
+/* ── Tablette (≤ 768px) ── */
+@media (max-width: 768px) {
+  .catalogue-container { padding: 2.5rem 1.5rem; }
+  .catalogue-title { font-size: 1.8rem; letter-spacing: 1.5px; }
+  .search-filter-form { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .search-bar-container { max-width: 100%; }
+  .filter-group { gap: 0.75rem; }
+  .price-input { flex: 1; min-width: 80px; } /* Les inputs de prix s'étirent en tablette */
+  .filter-select { flex: 1.5; min-width: 140px; }
+  .search-button { width: 100%; text-align: center; }
+  .books-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 2.5rem 1.5rem; }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .catalogue-container { padding: 1.5rem 1rem; }
+  .catalogue-title { font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 1.25rem; }
+  .filter-group { flex-direction: column; align-items: stretch; }
+  .price-input, .filter-select { width: 100%; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0.75rem; }
+  .book-image-container { height: 180px; margin-bottom: 0.75rem; }
+  .book-title { font-size: 0.85rem; }
+  .book-author { font-size: 0.78rem; margin-bottom: 0.75rem; }
+  .book-price { font-size: 0.9rem; }
+  .cart-button { width: 34px; height: 34px; }
+}

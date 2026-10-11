@@ -1,0 +1,40 @@
+# config/packages/security.yaml
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN]
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        main:
+            lazy: true
+            provider: app_user_provider
+
+            # Je passe le pare-feu en mode API
+            stateless: true
+
+            json_login:
+                check_path: /api/login_check
+                username_path: email
+                password_path: password
+
+                # Je connecte le succès et l'échec à la génération du token JWT
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+    access_control:
+        - { path: ^/api/login_check,           roles: PUBLIC_ACCESS }
+        - { path: ^/api/inscription-securisee, roles: PUBLIC_ACCESS }
+        - { path: ^/api/cart,                  roles: PUBLIC_ACCESS }
+        - { path: ^/api/stats,                 roles: PUBLIC_ACCESS }
+        - { path: ^/api/superadmin,            roles: PUBLIC_ACCESS }
+        - { path: ^/api/security,              roles: PUBLIC_ACCESS }
+        - { path: ^/api,                       roles: PUBLIC_ACCESS }

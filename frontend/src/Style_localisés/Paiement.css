@@ -1,0 +1,262 @@
+/* --- Conteneur global --- */
+.paiement-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+}
+
+/* --- Carte du formulaire --- */
+.paiement-card {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 3rem;
+  border: 1px solid #000000;
+  box-shadow: 10px 10px 0px #000000;
+}
+
+.paiement-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.paiement-header h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.paiement-header p {
+  color: #666666;
+  font-size: 1.1rem;
+}
+
+/* --- Champs du formulaire --- */
+.paiement-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.paiement-form label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.paiement-form input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 1px solid #cccccc;
+  background-color: #fafafa;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.paiement-form input:focus {
+  border-color: #000000;
+  background-color: #ffffff;
+}
+
+/* Ligne expiration + CVC */
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-row .form-group { flex: 1; }
+
+/* Input avec icône */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  color: #666666;
+}
+
+.input-with-icon input { padding-left: 45px; }
+
+/* --- Bouton de Paiement --- */
+.btn-payer {
+  width: 100%;
+  padding: 18px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  transition: background-color 0.3s;
+}
+
+.btn-payer:hover { background-color: #333333; }
+
+/* --- Badges de Sécurité --- */
+.security-badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eeeeee;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #000000;
+}
+
+.badge span {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.secure-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  border: 2px solid #000000;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+
+/* --- Lien retour --- */
+.btn-retour {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  color: #666666;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-retour:hover { color: #000000; }
+
+
+/* ── Tablette (≤ 600px) ── */
+@media (max-width: 600px) {
+  .paiement-container {
+    padding: 2.5rem 1.5rem;
+    align-items: flex-start;
+  }
+
+  .paiement-card {
+    padding: 2rem;
+    box-shadow: 6px 6px 0px #000000; /* ombre réduite */
+  }
+
+  .paiement-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .paiement-header p {
+    font-size: 1rem;
+  }
+
+  .security-badges {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .badge { gap: 10px; }
+}
+
+
+/* ── Mobile (≤ 420px) ── */
+@media (max-width: 420px) {
+  .paiement-container {
+    padding: 1.5rem 0;
+    align-items: flex-start;
+  }
+
+  .paiement-card {
+    padding: 1.75rem 1.25rem;
+    border-left: none;
+    border-right: none;  /* carte pleine largeur sans bords latéraux */
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .paiement-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .paiement-header h2 {
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+  }
+
+  .paiement-header p {
+    font-size: 0.9rem;
+  }
+
+  .paiement-form input {
+    font-size: 16px;      /* évite le zoom iOS */
+    padding: 13px;
+  }
+
+  .paiement-form label {
+    font-size: 0.82rem;
+  }
+
+  /* Expiration + CVC empilés */
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .btn-payer {
+    padding: 16px;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Badges en colonne sur très petit écran */
+  .security-badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .badge span { font-size: 0.8rem; }
+
+  .secure-text {
+    font-size: 1rem;
+    padding: 4px 8px;
+  }
+
+  .btn-retour {
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+  }
+}

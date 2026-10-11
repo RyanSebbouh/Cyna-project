@@ -1,0 +1,60 @@
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #e67e22;
+  --bg-color: #fcfcfc;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-color: #e0e0e0;
+  --radius-main: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Réinitialisation propre */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Je force le HTML et le BODY à faire 100% de la fenêtre */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+/* La div #root de React doit être le conteneur Flex principal */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ta div .app-layout doit aussi s'étendre */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* C'EST ICI QUE LE FOOTER EST POUSSÉ :
+   La zone main prend tout l'espace disponible au milieu */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;  /* force la couleur blanche */
+}

@@ -1,0 +1,30 @@
+parameters:
+    app.hf_token: '%env(HUGGINGFACE_TOKEN)%'
+    app.hf_url: '%env(HUGGINGFACE_API_URL)%'
+    env(HUGGINGFACE_TOKEN): 'hf_placeholder'
+    env(HUGGINGFACE_URL): 'https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct/v1/chat/completions'
+
+    services:
+        # ...
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            string $hfToken: '%app.hf_token%'
+            string $hfUrl: '%app.hf_url%'
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+    Symfony\Component\RateLimiter\RateLimiterFactory $loginLimiter: '@limiter.login_limiter'
+    App\EventSubscriber\SecuritySubscriber:
+        arguments:
+            $environment: '%kernel.environment%'
+    App\Controller\ChatbotController:
+        arguments:
+            $hfToken: '%env(HUGGINGFACE_TOKEN)%'
+            $hfUrl: '%env(HUGGINGFACE_URL)%'

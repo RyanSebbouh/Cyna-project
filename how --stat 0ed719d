@@ -1,0 +1,114 @@
+[33mcommit 39d296f8f5d7781f20ec283760918b3af6f08b62[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Ryan <ryansebbouh2@gmail.com>
+Date:   Fri May 29 08:23:11 2026 +0200
+
+    Mise a jour complete
+
+ backend/.env                                       |   16 [32m+[m[31m-[m
+ backend/.gitignore                                 |    5 [32m+[m[31m-[m
+ backend/compose.yaml                               |    2 [32m+[m[31m-[m
+ backend/composer.json                              |    3 [32m+[m
+ backend/composer.lock                              | 3161 [32m+++++++++++++++[m[31m-----[m
+ backend/config/bundles.php                         |    5 [32m+[m
+ backend/config/packages/csrf.yaml                  |   11 [32m+[m
+ .../config/packages/lexik_jwt_authentication.yaml  |    4 [32m+[m
+ backend/config/packages/nelmio_cors.yaml           |    2 [32m+[m[31m-[m
+ backend/config/packages/security.yaml              |    8 [32m+[m
+ backend/config/packages/twig.yaml                  |    6 [32m+[m
+ backend/config/packages/twig_component.yaml        |    5 [32m+[m
+ backend/config/packages/validator.yaml             |   11 [32m+[m
+ backend/config/reference.php                       |  209 [32m+[m[31m-[m
+ backend/config/routes.yaml                         |    6 [32m+[m
+ backend/config/routes/easyadmin.yaml               |    4 [32m+[m
+ backend/config/services.yaml                       |    3 [32m+[m
+ backend/image_backend.tar                          |  Bin [31m0[m -> [32m207315968[m bytes
+ backend/migrations/Version20260228173552.php       |   37 [31m-[m
+ backend/migrations/Version20260302075720.php       |   43 [31m-[m
+ backend/migrations/Version20260316164839.php       |   67 [31m-[m
+ backend/migrations/Version20260316165056.php       |   61 [31m-[m
+ ...0260316164957.php => Version20260403123043.php} |   12 [32m+[m[31m-[m
+ ...0260225125907.php => Version20260413062211.php} |    6 [32m+[m[31m-[m
+ ...0260225092418.php => Version20260415060306.php} |    6 [32m+[m[31m-[m
+ backend/migrations/Version20260415085519.php       |   31 [32m+[m
+ ...0260225115309.php => Version20260415091802.php} |    6 [32m+[m[31m-[m
+ backend/migrations/Version20260424074820.php       |   35 [32m+[m
+ backend/migrations/Version20260427131103.php       |   35 [32m+[m
+ ...0260303133553.php => Version20260427131211.php} |    8 [32m+[m[31m-[m
+ .../8548425d5dfff4eba04a81acf25a8470bdfc5faf.jpg   |  Bin [31m0[m -> [32m5396[m bytes
+ backend/sauvegarde_livre.sql                       |    0
+ backend/src/Command/SendNewsletterCommand.php      |   84 [32m+[m
+ .../Controller/Admin/AdminNewsletterController.php |   76 [32m+[m
+ .../src/Controller/Admin/DashboardController.php   |   47 [32m+[m
+ .../Controller/Admin/ServiceSaasCrudController.php |   62 [32m+[m
+ .../Controller/Admin/SiteContentCrudController.php |   42 [32m+[m
+ .../src/Controller/Api/SiteContentController.php   |   30 [32m+[m
+ backend/src/Controller/ChatbotController.php       |   80 [32m+[m
+ backend/src/Controller/MailController.php          |    9 [32m+[m[31m-[m
+ backend/src/Controller/ProfilController.php        |   63 [32m+[m[31m-[m
+ backend/src/Controller/SecurityController.php      |  198 [32m+[m[31m-[m
+ backend/src/Controller/ServiceController.php       |   52 [32m+[m[31m-[m
+ backend/src/Entity/CartItem.php                    |    2 [32m+[m[31m-[m
+ backend/src/Entity/NewsletterCampaign.php          |   58 [32m+[m
+ backend/src/Entity/Service.php                     |   79 [32m+[m
+ backend/src/Entity/ServiceImage.php                |   51 [32m+[m
+ backend/src/Entity/ServiceSaas.php                 |   47 [32m+[m[31m-[m
+ backend/src/Entity/SiteContent.php                 |   81 [32m+[m
+ backend/src/Entity/Subscription.php                |  173 [32m++[m
+ backend/src/Entity/User.php                        |   36 [32m+[m
+ backend/src/Form/ServiceImageType.php              |   32 [32m+[m
+ .../Repository/NewsletterCampaignRepository.php    |   21 [32m+[m
+ backend/src/Repository/ServiceImageRepository.php  |   43 [32m+[m
+ backend/src/Repository/ServiceRepository.php       |   43 [32m+[m
+ backend/src/Repository/SiteContentRepository.php   |   43 [32m+[m
+ backend/symfony.lock                               |   85 [32m+[m
+ backend/templates/base.html.twig                   |   23 [32m+[m
+ frontend/index.html                                |    1 [31m-[m
+ frontend/src/App.jsx                               |   76 [32m+[m[31m-[m
+ .../Style_localis\303\251s/AdminNewsletter.css"    |  127 [32m+[m
+ .../src/Style_localis\303\251s/Catalogue.css"      |  142 [32m+[m[31m-[m
+ "frontend/src/Style_localis\303\251s/Chatbot.css"  |  154 [32m+[m
+ .../src/Style_localis\303\251s/Connexion.css"      |  196 [32m+[m[31m-[m
+ .../src/Style_localis\303\251s/CookieBanner.css"   |    6 [32m+[m[31m-[m
+ .../src/Style_localis\303\251s/Desabonnement.css"  |   52 [32m+[m
+ "frontend/src/Style_localis\303\251s/Home.css"     |  824 [32m++[m[31m---[m
+ .../src/Style_localis\303\251s/Inscription.css"    |  244 [32m+[m[31m-[m
+ "frontend/src/Style_localis\303\251s/Panier.css"   |  440 [32m+[m[31m--[m
+ .../src/Style_localis\303\251s/ProductDetail.css"  |  142 [32m+[m
+ frontend/src/api/cartApi.jsx                       |   32 [32m+[m[31m-[m
+ frontend/src/api/chatbotApi.jsx                    |   34 [32m+[m
+ frontend/src/components/CGU.jsx                    |  178 [32m+[m[31m-[m
+ frontend/src/components/CGV.jsx                    |  158 [32m+[m[31m-[m
+ frontend/src/components/Chatbot.jsx                |   84 [32m+[m
+ frontend/src/components/CmsContent.jsx             |   25 [32m+[m
+ frontend/src/components/CookieBanner.jsx           |   88 [32m+[m[31m-[m
+ frontend/src/components/InactivityWatcher.jsx      |   31 [32m+[m[31m-[m
+ frontend/src/components/MesAbonnements.jsx         |  187 [32m++[m
+ frontend/src/components/MotDePasseOublie.jsx       |   23 [32m+[m[31m-[m
+ frontend/src/components/SecurityBadge.jsx          |    1 [31m-[m
+ frontend/src/components/WelcomeScreen.jsx          |  148 [31m-[m
+ frontend/src/context/CartContext.jsx               |   80 [32m+[m
+ frontend/src/context/ContentContext.jsx            |   37 [32m+[m
+ frontend/src/hooks/usePageTracking.jsx             |   26 [32m+[m[31m-[m
+ frontend/src/hooks/useWindowSize.jsx               |    4 [32m+[m[31m-[m
+ frontend/src/layout/Footer.jsx                     |   73 [32m+[m[31m-[m
+ frontend/src/layout/Header.jsx                     |   77 [32m+[m[31m-[m
+ frontend/src/locales/en.json                       | 1036 [32m++++[m[31m---[m
+ frontend/src/locales/fr.json                       | 1058 [32m++++[m[31m---[m
+ frontend/src/main.jsx                              |   12 [32m+[m[31m-[m
+ frontend/src/pages/AdminDashboard.jsx              |   32 [32m+[m[31m-[m
+ frontend/src/pages/AdminNewsletter.jsx             |  161 [32m+[m
+ frontend/src/pages/Catalogue.jsx                   |  783 [32m++[m[31m---[m
+ frontend/src/pages/ConfirmationEmail.jsx           |   33 [32m+[m[31m-[m
+ frontend/src/pages/Connexion.jsx                   |   61 [32m+[m[31m-[m
+ frontend/src/pages/Contact.jsx                     |   32 [32m+[m[31m-[m
+ frontend/src/pages/Desabonnement.jsx               |   83 [32m+[m
+ frontend/src/pages/Home.jsx                        |  928 [32m++[m[31m----[m
+ frontend/src/pages/Informations.jsx                |   64 [32m+[m[31m-[m
+ frontend/src/pages/Inscription.jsx                 |   51 [32m+[m[31m-[m
+ frontend/src/pages/MonProfil.jsx                   |   92 [32m+[m[31m-[m
+ frontend/src/pages/Paiement.jsx                    |   34 [32m+[m[31m-[m
+ frontend/src/pages/Panier.jsx                      |  540 [32m+[m[31m---[m
+ frontend/src/pages/ProductDetail.jsx               |   92 [32m+[m
+ frontend/src/pages/ReinitialiserMotDePasse.jsx     |   25 [32m+[m[31m-[m
+ frontend/src/pages/SuperAdminDashboard.jsx         |   87 [32m+[m[31m-[m
+ frontend/src/utils/Guestcartutils.jsx              |   41

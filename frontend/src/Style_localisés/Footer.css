@@ -1,0 +1,226 @@
+/* =====================================================
+   FOOTER — CYNA CYBERSÉCURITÉ
+   ===================================================== */
+
+.cf-footer {
+  background: #030609;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: 'Space Grotesk', sans-serif;
+  color: rgba(232, 234, 240, 0.55);
+}
+
+/* ── Colonnes principales ── */
+.cf-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px 48px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+/* ── Marque ── */
+.cf-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.cf-logo-icon {
+  width: 34px;
+  height: 34px;
+  background: #00e5ff;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #050810;
+}
+
+.cf-logo-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 19px;
+  font-weight: 500;
+  color: #e8eaf0;
+  letter-spacing: -0.03em;
+}
+
+.cf-logo-accent {
+  color: #00e5ff;
+}
+
+.cf-tagline {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(232, 234, 240, 0.35);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.cf-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(232, 234, 240, 0.4);
+  margin-bottom: 8px;
+}
+
+.cf-contact-item svg {
+  color: #00e5ff;
+  flex-shrink: 0;
+}
+
+.cf-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cf-social {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(232, 234, 240, 0.4);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.cf-social:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  color: #00e5ff;
+  background: rgba(0, 229, 255, 0.05);
+}
+
+/* ── Colonnes nav ── */
+.cf-col-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 234, 240, 0.25);
+  margin-bottom: 18px;
+}
+
+.cf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cf-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: rgba(232, 234, 240, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cf-link:hover {
+  color: #e8eaf0;
+}
+
+.cf-link svg {
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* ── Bandeau sécurité ── */
+.cf-security {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cf-security-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cf-sec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 234, 240, 0.2);
+  white-space: nowrap;
+}
+
+.cf-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cf-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cf-badge:hover {
+  border-color: rgba(0, 229, 255, 0.2);
+  background: rgba(0, 229, 255, 0.03);
+}
+
+.cf-badge-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cf-badge-icon--ssl  { background: rgba(0, 230, 118, 0.1); color: #00e676; }
+.cf-badge-icon--iso  { background: rgba(0, 229, 255, 0.1); color: #00e5ff; }
+.cf-badge-icon--soc2 { background: rgba(124, 77, 255, 0.1); color: #7c4dff; }
+.cf-badge-icon--rgpd { background: rgba(255, 193, 7, 0.1);  color: #ffc107; }
+.cf-badge-icon--ddos { background: rgba(255, 82, 82, 0.1);  color: #ff5252; }
+
+.cf-badge-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(232, 234, 240, 0.6);
+  line-height: 1;
+}
+
+.cf-badge-desc {
+  font-size: 10px;
+  color: rgba(232, 234, 240, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Copyright ── */
+.cf-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(232, 234, 240, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+}

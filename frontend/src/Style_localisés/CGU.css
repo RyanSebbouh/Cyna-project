@@ -1,0 +1,144 @@
+.cgu-page {
+  background-color: #f4f6f9;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cgu-container {
+  background-color: #ffffff;
+  max-width: 900px;
+  width: 100%;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  color: #333333;
+}
+
+.cgu-container h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 15px;
+}
+
+.cgu-section {
+  margin-bottom: 35px;
+}
+
+.cgu-section h2 {
+  font-size: 20px;
+  color: #0056b3;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.cgu-section h3 {
+  font-size: 16px;
+  color: #444;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.cgu-section p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.cgu-section ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.cgu-section li {
+  margin-bottom: 8px;
+}
+
+
+/* ── Tablette (≤ 768px) ── */
+@media (max-width: 768px) {
+  .cgu-page {
+    padding: 24px 16px;
+  }
+
+  .cgu-container {
+    padding: 30px 25px;
+    border-radius: 6px;
+  }
+
+  .cgu-container h1 {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+
+  .cgu-section {
+    margin-bottom: 28px;
+  }
+
+  .cgu-section h2 {
+    font-size: 18px;
+  }
+
+  .cgu-section h3 {
+    font-size: 15px;
+  }
+}
+
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .cgu-page {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .cgu-container {
+    padding: 20px 16px;
+    border-radius: 0;        /* Plein écran sans bords arrondis */
+    box-shadow: none;        /* Inutile sur mobile plein écran */
+    min-height: 100vh;
+  }
+
+  .cgu-container h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .cgu-section {
+    margin-bottom: 22px;
+  }
+
+  .cgu-section h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .cgu-section h3 {
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+
+  .cgu-section p {
+    font-size: 14px;
+    text-align: left;        /* justify mal rendu sur petits écrans */
+    margin-bottom: 10px;
+  }
+
+  .cgu-section ul {
+    padding-left: 16px;
+    margin-bottom: 12px;
+  }
+
+  .cgu-section li {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+}
