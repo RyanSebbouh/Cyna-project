@@ -172,7 +172,7 @@ class OrderController extends AbstractController
             );
 
             if ($invoiceFileName) {
-                $invoicePath = $this->getParameter('kernel.project_dir') . '/public/uploads/invoices/' . $invoiceFileName;
+                $invoicePath = $invoiceGenerator->getFilePath($invoiceFileName);
                 if (file_exists($invoicePath)) {
                     $email->attachFromPath($invoicePath, 'facture_CYN-' . $order->getId() . '.pdf', 'application/pdf');
                 }
@@ -300,7 +300,7 @@ HTML;
     }
 
     #[Route('/{id}/facture-pdf', name: 'download_invoice', methods: ['GET', 'OPTIONS'])]
-    public function downloadInvoice(int $id, Request $request, EntityManagerInterface $em): Response
+    public function downloadInvoice(int $id, Request $request, EntityManagerInterface $em, InvoiceGenerator $invoiceGenerator): Response
     {
         if ($request->getMethod() === 'OPTIONS') {
             return new JsonResponse(null, 204);
@@ -318,7 +318,7 @@ HTML;
             return new JsonResponse(['error' => 'Le fichier de facture n\'a pas encore été généré'], 404);
         }
 
-        $filePath = $this->getParameter('kernel.project_dir') . '/public/uploads/invoices/' . $invoicePath;
+        $filePath = $invoiceGenerator->getFilePath($invoicePath);
 
         if (!file_exists($filePath)) {
             return new JsonResponse(['error' => 'Fichier physique introuvable sur le serveur'], 404);

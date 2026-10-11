@@ -35,15 +35,26 @@ class InvoiceGenerator
         $output = $dompdf->output();
 
         $fileName = 'facture_' . $order->getId() . '_' . uniqid() . '.pdf';
-        $publicDirectory = $this->params->get('kernel.project_dir') . '/public/uploads/invoices';
+        $invoiceDirectory = $this->params->get('kernel.project_dir') . '/var/invoices';
 
-        if (!is_dir($publicDirectory)) {
-            mkdir($publicDirectory, 0777, true);
+        if (!is_dir($invoiceDirectory) && !mkdir($invoiceDirectory, 0700, true) && !is_dir($invoiceDirectory)) {
+            throw new \RuntimeException('Unable to create the private invoice directory.');
         }
 
-        $filePath = $publicDirectory . '/' . $fileName;
-        file_put_contents($filePath, $output);
+        $filePath = $this->getFilePath($fileName);
+        if (file_put_contents($filePath, $output, LOCK_EX) === false) {
+            throw new \RuntimeException('Unable to write the invoice file.');
+        }
 
         return $fileName;
+    }
+
+    public function getFilePath(string $fileName): string
+    {
+        if (preg_match('/\Afacture_\d+_[a-f0-9]+\.pdf\z/', $fileName) !== 1) {
+            throw new \InvalidArgumentException('Invalid invoice filename.');
+        }
+
+        return $this->params->get('kernel.project_dir') . '/var/invoices/' . $fileName;
     }
 }

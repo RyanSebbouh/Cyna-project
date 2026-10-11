@@ -2,6 +2,8 @@
 /backend/vendor/
 /frontend/node_modules/
 /backend/image_backend.tar
+/backend/var/invoices/
+/backend/public/uploads/invoices/
 
 # Je protège mes fichiers de variables d'environnement (mots de passe BDD)
 .env

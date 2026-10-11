@@ -37,13 +37,13 @@ class InvoiceGenerator
 
         // Je crÃ©e le nom du fichier et le chemin de stockage
         $fileName = 'facture_' . $commande->getId() . '_' . uniqid() . '.pdf';
-        $publicDirectory = $this->params->get('kernel.project_dir') . '/public/uploads/invoices';
+        $invoiceDirectory = $this->params->get('kernel.project_dir') . '/var/invoices';
 
-        if (!is_dir($publicDirectory)) {
-            mkdir($publicDirectory, 0777, true);
+        if (!is_dir($invoiceDirectory)) {
+            mkdir($invoiceDirectory, 0700, true);
         }
 
-        $filePath = $publicDirectory . '/' . $fileName;
+        $filePath = $invoiceDirectory . '/' . $fileName;
         file_put_contents($filePath, $output);
 
         return $fileName;

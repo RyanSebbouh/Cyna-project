@@ -153,7 +153,7 @@ class ProfilController extends AbstractController
             );
 
             if ($invoiceFileName) {
-                $invoicePath = $this->getParameter('kernel.project_dir') . '/public/uploads/invoices/' . $invoiceFileName;
+                $invoicePath = $invoiceGenerator->getFilePath($invoiceFileName);
                 if (file_exists($invoicePath)) {
                     $email->attachFromPath($invoicePath, 'facture_CYN-' . $order->getId() . '.pdf', 'application/pdf');
                 }

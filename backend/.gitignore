@@ -3,25 +3,15 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/.env.production
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
+/node_modules/
 *.pem
 ###< symfony/framework-bundle ###
 
-# ── Sécurité Frontend (Vite/React) ──
-.env
-*.local
-.env.production
-.env.development
-dist/
-build/
-
-# ── Divers ──
-node_modules/
-.DS_Store
-.vscode/
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
